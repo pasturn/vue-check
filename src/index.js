@@ -47,11 +47,50 @@ const install = (_Vue, option) => {
         Array.isArray(rules.type) ? rules.type : rules.type
         switch(String.toLowerCase(rules.type)){
             case 'string':
-                if (typeof rules === 'string') {
-
-                }
+                // isString
                 break
-        }
+            case 'number':
+                // isNumber
+                break
+            case 'boolean':
+                //isBoolean
+                break
+            case 'method':
+                // isFunction
+                break
+            case 'regexp':
+                // isRegexp
+                break
+            case 'integer':
+                // isIteger
+                break
+            case 'float':
+                // isFloat:
+                break
+            case 'array':
+                // isArray
+                break
+            case 'object':
+                //isObject
+                break
+            case 'enum':
+                // isEnum
+                break
+            case 'date':
+                // isDate
+                break
+            case 'url':
+                //isUrl:
+                break
+            case 'hex':
+                // isHex
+                break
+            case 'email':
+                // isEmail
+                break
+            default:
+                break
+            }
     }
 
 }
