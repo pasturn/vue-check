@@ -1,3 +1,5 @@
+import check from './check'
+
 let Vue;
 
 const install = (_Vue, option) => {
@@ -24,7 +26,7 @@ const install = (_Vue, option) => {
             update (el, binding, vnode, oldVnode) {
                 console.log('update')
                 console.log(el, binding, vnode, oldVnode)
-                check(binding, vnode)
+                bindCheck(binding, vnode)
             },
             componentUpdated (el, binding, vnode, oldVnode) {
                 console.log('componentUpdated')
@@ -37,60 +39,20 @@ const install = (_Vue, option) => {
         }
     }
 
-    function check (binding, vnode) {
+    function bindCheck (binding, vnode) {
         var name = binding.arg,
             rules = binding.value,
-            value = vnode.data.domProps.value;
+            value = vnode.data.domProps.value,
+            result;
         if (!name) {
             throw new ReferenceError('plese set a name for which field need valiade')
         }
-        Array.isArray(rules.type) ? rules.type : rules.type
-        switch(String.toLowerCase(rules.type)){
-            case 'string':
-                // isString
-                break
-            case 'number':
-                // isNumber
-                break
-            case 'boolean':
-                //isBoolean
-                break
-            case 'method':
-                // isFunction
-                break
-            case 'regexp':
-                // isRegexp
-                break
-            case 'integer':
-                // isIteger
-                break
-            case 'float':
-                // isFloat:
-                break
-            case 'array':
-                // isArray
-                break
-            case 'object':
-                //isObject
-                break
-            case 'enum':
-                // isEnum
-                break
-            case 'date':
-                // isDate
-                break
-            case 'url':
-                //isUrl:
-                break
-            case 'hex':
-                // isHex
-                break
-            case 'email':
-                // isEmail
-                break
-            default:
-                break
-            }
+        if (Array.isArray(rules)) {
+            result = rules.filter(item => !check(item, value))
+        } else {
+            result = check(rules, value)
+        }
+        console.log(result)
     }
 
 }

@@ -2,10 +2,9 @@
   <div id="app">
     <img src="./assets/logo.png">
     <hello></hello>
-    <input v-check:name="{required: true, rules:
-    [{
-      type: 'string', message: 'dsdsfsf'
-    }]}" v-model="name"/>
+    <input v-check:name="[{
+      type: 'number', message: 'dsdsfsf'
+    }]" v-model="name" type="number"/>
     <p>{{name}}</p>
   </div>
 </template>
