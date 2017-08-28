@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import VueCheck from '../../dist'
+import VueCheck from '../../src'
 
 Vue.use(VueCheck)
 

@@ -8,7 +8,7 @@ export default function check (rule, value){
         case 'string':
             return typeof value === 'string'
         case 'number':
-            return  /^[0-9]+.?[0-9]*$/.test(value) 
+            return /^[0-9]*$/.test(value) 
         case 'boolean':
             return typeof value === 'boolean'
         case 'method':

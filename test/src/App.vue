@@ -1,11 +1,9 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
     <input v-check:name="[{
-      type: 'number', message: 'dsdsfsf'
-    }]" v-model="name" type="number"/>
-    <p>{{name}}</p>
+      type: 'number', message: '必须为整数'
+    }]" v-model="name" :class="{error: !checkError.name}"/>
+    <p>{{checkError.name}}</p>
   </div>
 </template>
 
@@ -16,8 +14,12 @@ export default {
   name: 'app',
   data () {
     return {
-      name: ''
+      name: '',
+      checkError: {}
     }
+  },
+  mounted () {
+    console.log(this)
   },
   components: {
     Hello
@@ -33,5 +35,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.error{
+  background: #ff0000
 }
 </style>
